@@ -1,0 +1,10 @@
+sudo: required         # need super-user permission
+services:
+        - docker       # installs a docker copy   
+before_install:        # build docker image from file with tag
+        - docker build -t gkulkarni05/docker-react -f dockerfile.dev .
+script:                # run test with no manual commands/intervention
+        - docker run gkulkarni05/docker-react npm run test -- --coverage
+
+     
+               
